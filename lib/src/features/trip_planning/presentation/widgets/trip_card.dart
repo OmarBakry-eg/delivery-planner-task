@@ -411,7 +411,7 @@ class _TripCardState extends State<TripCard> {
                     TileLayer(
                       urlTemplate:
                           'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                      userAgentPackageName: 'com.routeweaver.app',
+                      userAgentPackageName: 'com.deliverydispatcher.app',
                     ),
                     MarkerLayer(
                       markers: [

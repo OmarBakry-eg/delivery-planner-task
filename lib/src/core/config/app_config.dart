@@ -33,18 +33,18 @@ class AppConfig {
   static String get appName {
     switch (_flavor) {
       case BuildFlavor.dev:
-        return 'RouteWeaver Dev';
+        return 'Delivery Dispatcher Dev';
       case BuildFlavor.prod:
-        return 'RouteWeaver';
+        return 'Delivery Dispatcher';
     }
   }
 
   static String get appId {
     switch (_flavor) {
       case BuildFlavor.dev:
-        return 'com.routeweaver.dev';
+        return 'com.deliverydispatcher.dev';
       case BuildFlavor.prod:
-        return 'com.routeweaver.app';
+        return 'com.deliverydispatcher.app';
     }
   }
 

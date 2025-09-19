@@ -10,7 +10,7 @@ import 'package:test_hsa_group/src/features/trip_planning/data/model/vehicle.dar
 import '../entities/trip.dart';
 
 class TripRepository {
-  static const String _boxName = 'routeweaver_data';
+  static const String _boxName = 'delivery_dispatcher_data';
   static const String _dataKey = 'app_data';
   late Box _box;
   AppData2? _cachedData;

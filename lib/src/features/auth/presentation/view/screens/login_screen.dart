@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ).animate().scale(duration: 500.ms),
                                     const SizedBox(width: 12),
                                     Text(
-                                      'RouteWeaver',
+                                      'Delivery Dispatcher',
                                       style: GoogleFonts.inter(
                                         fontSize: 26,
                                         fontWeight: FontWeight.w800,
