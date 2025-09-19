@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_hsa_group/src/core/config/app_config.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/order.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/delivery.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/delivery.dart';
 import 'package:test_hsa_group/src/features/trip_execution/presentation/cubit/trip_execution_state.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/repo/trip_repo.dart';
 
 class TripExecutionCubit extends Cubit<TripExecutionState> {
-  final TripRepository _repository;
+  final TripPlanningRepository _repository;
 
   TripExecutionCubit(this._repository) : super(TripExecutionInitial());
 

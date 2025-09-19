@@ -7,10 +7,10 @@ import 'package:latlong2/latlong.dart';
 import 'package:test_hsa_group/src/core/config/app_config.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/customer.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/order.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/trip.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/trip.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/model/vehicle.dart';
 
-class AppData2 {
+class TripRepoData {
   final DateTime planDate;
   final String depotTimezone;
   final LatLng depot;
@@ -19,7 +19,7 @@ class AppData2 {
   final List<Customer> customers;
   final List<Trip> trips;
 
-  const AppData2({
+  const TripRepoData({
     required this.planDate,
     required this.depotTimezone,
     required this.depot,
@@ -29,7 +29,7 @@ class AppData2 {
     this.trips = const [],
   });
 
-  AppData2 copyWith({
+  TripRepoData copyWith({
     DateTime? planDate,
     String? depotTimezone,
     LatLng? depot,
@@ -37,7 +37,7 @@ class AppData2 {
     List<Order>? orders,
     List<Customer>? customers,
     List<Trip>? trips,
-  }) => AppData2(
+  }) => TripRepoData(
     planDate: planDate ?? this.planDate,
     depotTimezone: depotTimezone ?? this.depotTimezone,
     depot: depot ?? this.depot,
@@ -48,22 +48,22 @@ class AppData2 {
   );
 }
 
-class TripRepository {
+class TripPlanningRepository {
   static const String _boxName = 'delivery_dispatcher_data';
   static const String _dataKey = 'app_data';
   late Box _box;
-  AppData2? _cachedData;
-  final StreamController<AppData2> _changeController =
-      StreamController<AppData2>.broadcast();
+  TripRepoData? _cachedData;
+  final StreamController<TripRepoData> _changeController =
+      StreamController<TripRepoData>.broadcast();
 
-  Stream<AppData2> get changes => _changeController.stream;
+  Stream<TripRepoData> get changes => _changeController.stream;
 
   Future<void> initialize() async {
     await AppConfig.initialize();
     _box = await Hive.openBox(_boxName);
   }
 
-  Future<AppData2> loadData() async {
+  Future<TripRepoData> loadData() async {
     if (_cachedData != null) return _cachedData!;
 
     // Try to load from Hive first
@@ -92,10 +92,10 @@ class TripRepository {
     return _cachedData!;
   }
 
-  AppData2 _parseAppDataFromJson(Map<String, dynamic> json) {
+  TripRepoData _parseAppDataFromJson(Map<String, dynamic> json) {
     final meta = json['meta'] as Map<String, dynamic>;
     final depot = meta['depot'] as Map<String, dynamic>;
-    return AppData2(
+    return TripRepoData(
       planDate: DateTime.parse(meta['planDate'] as String),
       depotTimezone: meta['depotTimezone'] as String,
       depot: LatLng(
@@ -119,7 +119,7 @@ class TripRepository {
     );
   }
 
-  AppData2 _applyEnvDatasetSizing(AppData2 data) {
+  TripRepoData _applyEnvDatasetSizing(TripRepoData data) {
     // Dev: limit to 10 orders; Prod: limit to 20 orders
     final limit = AppConfig.flavor == BuildFlavor.dev ? 10 : 20;
     final limitedOrders = data.orders.take(limit).toList();
@@ -178,7 +178,7 @@ class TripRepository {
     _emitChange(updatedData);
   }
 
-  Future<void> _saveData(AppData2 data) async {
+  Future<void> _saveData(TripRepoData data) async {
     final jsonData = {
       'meta': {
         'planDate': data.planDate.toIso8601String(),
@@ -243,7 +243,7 @@ class TripRepository {
     _cachedData = null;
   }
 
-  void _emitChange(AppData2 data) {
+  void _emitChange(TripRepoData data) {
     if (!_changeController.isClosed) {
       _changeController.add(data);
     }

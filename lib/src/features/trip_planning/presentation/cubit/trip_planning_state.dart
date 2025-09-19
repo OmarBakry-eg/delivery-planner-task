@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/customer.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/order.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/trip.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/trip.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/model/vehicle.dart';
 
 abstract class TripPlanningState extends Equatable {

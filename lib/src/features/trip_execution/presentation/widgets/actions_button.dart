@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/delivery.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/delivery.dart';
 class ActionButtons extends StatelessWidget {
   final List<DeliveryStatus> validTransitions;
   final Function(DeliveryStatus) onStatusUpdate;

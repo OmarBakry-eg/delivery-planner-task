@@ -36,15 +36,15 @@ Future<void> setupDependencies() async {
     ),
   );
 
-  final tripRepository = TripRepository();
+  final tripRepository = TripPlanningRepository();
   await tripRepository.initialize();
-  getIt.registerSingleton<TripRepository>(tripRepository);
+  getIt.registerSingleton<TripPlanningRepository>(tripRepository);
 
   getIt.registerLazySingleton<SettingsRepository>(
     () => SettingsRepositoryImpl(local: getIt<SettingsLocalDataSource>()),
   );
 
   getIt.registerLazySingleton<TripExecutionCubit>(
-    () => TripExecutionCubit(getIt<TripRepository>()),
+    () => TripExecutionCubit(getIt<TripPlanningRepository>()),
   );
 }

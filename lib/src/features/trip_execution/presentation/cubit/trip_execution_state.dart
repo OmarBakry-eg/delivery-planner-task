@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/customer.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/order.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/trip.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/delivery.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/trip.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/delivery.dart';
 
 
 abstract class TripExecutionState extends Equatable {

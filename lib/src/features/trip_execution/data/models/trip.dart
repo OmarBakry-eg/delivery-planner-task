@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/order.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/delivery.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/delivery.dart';
 
 class Trip {
   final String id;

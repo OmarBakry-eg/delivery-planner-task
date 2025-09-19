@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_hsa_group/init.dart';
 import 'package:test_hsa_group/src/core/config/app_config.dart';
 import 'package:test_hsa_group/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:test_hsa_group/src/features/auth/domain/usecases/get_auth_status.dart';
@@ -19,7 +20,6 @@ import 'package:test_hsa_group/src/features/settings/presentation/cubit/settings
 import 'package:test_hsa_group/src/features/trip_execution/presentation/cubit/trip_execution_cubit.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/repo/trip_repo.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_cubit.dart';
-import 'package:test_hsa_group/init.dart';
 import 'package:test_hsa_group/src/theme/app_theme.dart';
 
 class MyApp extends StatefulWidget {
@@ -30,7 +30,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late final TripRepository tripRepository;
+  late final TripPlanningRepository tripRepository;
   late final AuthRepository authRepository;
   late final TripPlanningCubit _tripPlanningCubit;
   late final HomeCubit _homeCubit;
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    tripRepository = getIt<TripRepository>();
+    tripRepository = getIt<TripPlanningRepository>();
     authRepository = getIt<AuthRepository>();
     _tripPlanningCubit = TripPlanningCubit(tripRepository)..loadData();
     _homeCubit = HomeCubit();
@@ -57,7 +57,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider<TripRepository>.value(
+    return RepositoryProvider<TripPlanningRepository>.value(
       value: tripRepository,
       child: MultiBlocProvider(
         providers: [

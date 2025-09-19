@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/delivery.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/delivery.dart';
 import 'package:test_hsa_group/src/features/trip_execution/presentation/cubit/trip_execution_cubit.dart';
 
 

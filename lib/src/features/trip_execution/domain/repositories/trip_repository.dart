@@ -7,9 +7,9 @@ import 'package:latlong2/latlong.dart';
 import '../../../orders/data/models/customer.dart';
 import '../../../orders/data/models/order.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/model/vehicle.dart';
-import '../entities/trip.dart';
+import '../../data/models/trip.dart';
 
-class TripRepository {
+class TripExecutionRepository {
   static const String _boxName = 'delivery_dispatcher_data';
   static const String _dataKey = 'app_data';
   late Box _box;

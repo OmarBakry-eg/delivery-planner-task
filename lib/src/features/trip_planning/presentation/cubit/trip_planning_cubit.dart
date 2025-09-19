@@ -4,14 +4,14 @@ import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/customer.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/order.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/delivery.dart';
-import 'package:test_hsa_group/src/features/trip_execution/domain/entities/trip.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/delivery.dart';
+import 'package:test_hsa_group/src/features/trip_execution/data/models/trip.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/model/vehicle.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/repo/trip_repo.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_state.dart';
 
 class TripPlanningCubit extends Cubit<TripPlanningState> {
-  final TripRepository _repository;
+  final TripPlanningRepository _repository;
 
   TripPlanningCubit(this._repository) : super(TripPlanningInitial()) {
     // Subscribe immediately so TripExecution updates reflect in planning UI
