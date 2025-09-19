@@ -44,10 +44,9 @@ class AuthCubit extends Cubit<AuthState> {
   bool _obscurePassword = true;
   bool get obscurePassword => _obscurePassword;
   void togglePasswordVisibility() {
+    emit(ToggledAuthObscurePassword(_obscurePassword));
     _obscurePassword = !_obscurePassword;
-    // Re-emit current state to rebuild listeners
-    final current = state;
-    emit(current);
+    emit(AuthObscurePassword(_obscurePassword));
   }
 
   Future<void> signOut() async {

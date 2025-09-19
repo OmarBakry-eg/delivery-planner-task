@@ -23,6 +23,21 @@ class AuthAuthenticated extends AuthState {
   List<Object?> get props => [user];
 }
 
+class AuthObscurePassword extends AuthState {
+  final bool obscurePassword;
+  const AuthObscurePassword(this.obscurePassword);
+
+  @override
+  List<Object?> get props => [obscurePassword];
+}
+
+class ToggledAuthObscurePassword extends AuthState {
+  final bool obscurePassword;
+  const ToggledAuthObscurePassword(this.obscurePassword);
+
+  @override
+  List<Object?> get props => [obscurePassword];
+}
 class AuthUnauthenticated extends AuthState {
   @override
   List<Object?> get props => [];
