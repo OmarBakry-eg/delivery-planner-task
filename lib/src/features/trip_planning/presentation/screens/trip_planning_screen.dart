@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_hsa_group/src/core/utils/timezone_utils.dart';
+import 'package:test_hsa_group/src/utils/timezone_utils.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_cubit.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_state.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/screens/trips_completed_screen.dart';

@@ -20,7 +20,7 @@ import 'package:test_hsa_group/src/features/settings/presentation/cubit/settings
 import 'package:test_hsa_group/src/features/trip_execution/presentation/cubit/trip_execution_cubit.dart';
 import 'package:test_hsa_group/src/features/trip_planning/data/repo/trip_repo.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_cubit.dart';
-import 'package:test_hsa_group/src/theme/app_theme.dart';
+import 'package:test_hsa_group/src/utils/theme/app_theme.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
