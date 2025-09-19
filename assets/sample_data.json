@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "planDate": "2025-09-17T00:00:00.000Z",
+    "depotTimezone": "Asia/Dubai",
+    "depot": { "lat": 25.2048, "lon": 55.2708 }
+  },
+  "vehicles": [
+    {
+      "id": "v01",
+      "name": "Sprinter Van",
+      "capacity": { "weight": 1500, "volume": 12.0 },
+      "fillRate": 0.85
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-001",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      "id": "ORD-002",
+      "customerId": "CUST-B",
+      "codAmount": 0.0,
+      "isDiscounted": false,
+      "items": [
+        { "sku": "SKU-LAPTOP", "name": "Laptop Pro", "quantity": 2, "weight": 2.5, "volume": 0.01, "serialTracked": true, "serialNumbers": [] }
+      ]
+    },
+    {
+      "id": "ORD-003",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      "id": "ORD-004",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      "id": "ORD-005",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      "id": "ORD-006",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      "id": "ORD-007",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      "id": "ORD-008",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      
+      "id": "ORD-009",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    },
+    {
+      "id": "ORD-010",
+      "customerId": "CUST-A",
+      "codAmount": 150.75,
+      "isDiscounted": true,
+      "items": [
+        { "sku": "SKU-TV", "name": "65-inch 4K TV", "quantity": 1, "weight": 25, "volume": 0.4, "serialTracked": false }
+      ]
+    }
+  
+  
+  ],
+  "customers": [
+    { "id": "CUST-A", "name": "Alice Martin", "location": { "lat": 25.22, "lon": 55.28 } },
+    { "id": "CUST-B", "name": "Bob Johnson", "location": { "lat": 25.18, "lon": 55.25 } }
+  ],
+  "trips": []
+}
+
+
