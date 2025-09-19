@@ -50,6 +50,8 @@ class TripPlanningLoaded extends TripPlanningState {
       )
       .join('#');
 
+  bool get isAllTripsCompleted => trips.every((t) => t.isCompleted);
+
   TripPlanningLoaded copyWith({
     List<Order>? availableOrders,
     List<Customer>? customers,

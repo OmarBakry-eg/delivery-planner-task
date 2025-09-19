@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_hsa_group/src/utils/timezone_utils.dart';
 import 'package:test_hsa_group/src/features/orders/data/models/order.dart';
 import 'package:test_hsa_group/src/features/trip_execution/data/models/delivery.dart';
 import 'package:test_hsa_group/src/features/trip_execution/data/models/trip.dart';
@@ -12,6 +11,7 @@ import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/tri
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_state.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/widgets/trip_card_expanded_widget.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/widgets/trip_card_popup_button.dart';
+import 'package:test_hsa_group/src/utils/timezone_utils.dart';
 
 class TripCard extends StatefulWidget {
   final Trip trip;
@@ -107,6 +107,9 @@ class _TripCardState extends State<TripCard> {
         final inTransitStops = currentTrip.stops
             .where((s) => s.status == DeliveryStatus.inTransit)
             .length;
+        final failedStops = currentTrip.stops
+            .where((s) => s.status == DeliveryStatus.failed)
+            .length;
         final totalStops = currentTrip.stops.length;
         final remainingStops = totalStops - completedStops;
 
@@ -173,6 +176,13 @@ class _TripCardState extends State<TripCard> {
                           style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Colors.green,
+                          ),
+                        ),
+                        Text(
+                          'Failed: $failedStops/$totalStops',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Colors.red,
                           ),
                         ),
                       ],

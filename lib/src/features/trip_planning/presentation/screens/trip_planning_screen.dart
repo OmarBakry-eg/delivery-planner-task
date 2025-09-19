@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_hsa_group/src/utils/timezone_utils.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_cubit.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/cubit/trip_planning_state.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/screens/trips_completed_screen.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/widgets/trip_builder.dart';
 import 'package:test_hsa_group/src/features/trip_planning/presentation/widgets/trip_card.dart';
+import 'package:test_hsa_group/src/utils/timezone_utils.dart';
 
 class TripPlanningScreen extends StatelessWidget {
   const TripPlanningScreen({super.key});
@@ -99,7 +99,9 @@ class TripPlanningScreen extends StatelessWidget {
                         return TripCard(key: ValueKey(trip.id), trip: trip);
                       },
                     ),
-                    const Divider(thickness: 2),
+                    if (!state.isAllTripsCompleted) ...[
+                      const Divider(thickness: 2),
+                    ],
                   ],
                   const Padding(
                     padding: EdgeInsets.all(16.0),
