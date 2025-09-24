@@ -13,13 +13,13 @@ class TripExecutionRepository {
   static const String _boxName = 'delivery_dispatcher_data';
   static const String _dataKey = 'app_data';
   late Box _box;
-  AppData2? _cachedData;
+  TripExecutionData? _cachedData;
 
   Future<void> initialize() async {
     _box = await Hive.openBox(_boxName);
   }
 
-  Future<AppData2> loadData() async {
+  Future<TripExecutionData> loadData() async {
     if (_cachedData != null) return _cachedData!;
 
     final savedData = _box.get(_dataKey);
@@ -42,10 +42,10 @@ class TripExecutionRepository {
     return _cachedData!;
   }
 
-  AppData2 _parseAppDataFromJson(Map<String, dynamic> json) {
+  TripExecutionData _parseAppDataFromJson(Map<String, dynamic> json) {
     final meta = json['meta'] as Map<String, dynamic>;
     final depot = meta['depot'] as Map<String, dynamic>;
-    return AppData2(
+    return TripExecutionData(
       planDate: DateTime.parse(meta['planDate'] as String),
       depotTimezone: meta['depotTimezone'] as String,
       depot: LatLng(
@@ -105,7 +105,7 @@ class TripExecutionRepository {
     _cachedData = updatedData;
   }
 
-  Future<void> _saveData(AppData2 data) async {
+  Future<void> _saveData(TripExecutionData data) async {
     final jsonData = {
       'meta': {
         'planDate': data.planDate.toIso8601String(),
@@ -122,7 +122,7 @@ class TripExecutionRepository {
   }
 }
 
-class AppData2 {
+class TripExecutionData {
   final DateTime planDate;
   final String depotTimezone;
   final LatLng depot;
@@ -131,7 +131,7 @@ class AppData2 {
   final List<Customer> customers;
   final List<Trip> trips;
 
-  const AppData2({
+  const TripExecutionData({
     required this.planDate,
     required this.depotTimezone,
     required this.depot,
@@ -141,7 +141,7 @@ class AppData2 {
     this.trips = const [],
   });
 
-  AppData2 copyWith({
+  TripExecutionData copyWith({
     DateTime? planDate,
     String? depotTimezone,
     LatLng? depot,
@@ -149,7 +149,7 @@ class AppData2 {
     List<Order>? orders,
     List<Customer>? customers,
     List<Trip>? trips,
-  }) => AppData2(
+  }) => TripExecutionData(
     planDate: planDate ?? this.planDate,
     depotTimezone: depotTimezone ?? this.depotTimezone,
     depot: depot ?? this.depot,

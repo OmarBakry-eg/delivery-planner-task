@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_hsa_group/src/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:test_hsa_group/src/features/auth/presentation/cubit/auth_state.dart';
 
-part 'animated_background.dart';
+part '../widgets/animated_background.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
